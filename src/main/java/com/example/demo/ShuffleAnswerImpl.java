@@ -2,7 +2,7 @@ package com.example.demo;
 
 import java.util.*;
 
-public class ShuffleAnswerImpl implements ShuffleAnswer{
+public class ShuffleAnswerImpl implements ShuffleAnswer {
 
     /***************************
      * 数字の並びをシャッフルし、正解とする
@@ -13,9 +13,9 @@ public class ShuffleAnswerImpl implements ShuffleAnswer{
     @Override
     public char[] shuffle(int numDigit) {
 
-        char[] answer= new char[]{};
+        char[] answer = new char[]{};
         char[] numbers = new char[]{
-        '0', '1', '2', '3', '4',
+                '0', '1', '2', '3', '4',
                 '5', '6', '7', '8', '9'};
         List<Character> numbersList = new ArrayList<>();
 

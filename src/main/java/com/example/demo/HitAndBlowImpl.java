@@ -23,7 +23,11 @@ public class HitAndBlowImpl implements HitAndBlow{
 
             numHit = countHit.countHit(answer, input, numDigit);
             numBlow = countBlow.countBlow(answer, input, numDigit);
-            System.out.println(numHit + "HIT!!  " + numBlow + "BLOW!!");
+            if (numHit == 0 && numBlow == 0) {
+                System.out.println("Nothing is correct!");
+            } else {
+                System.out.println(numHit + "number correct!!  " + numBlow + "number correct, wrong place!!");
+            }
         } while (numHit < numDigit);
     }
 }
