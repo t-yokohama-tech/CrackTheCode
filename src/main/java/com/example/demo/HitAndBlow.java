@@ -5,6 +5,6 @@ import java.io.Reader;
 
 public interface HitAndBlow {
 
-    String hitAndBlow(int[] answer, int[] input, int numDigit);
+    String hitAndBlow(Integer[] answer, Integer[] input, int numDigit);
 
 }

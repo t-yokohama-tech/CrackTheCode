@@ -13,7 +13,7 @@ public class HitAndBlowImpl implements HitAndBlow {
     private final CountBlowImpl countBlow;
 
     @Override
-    public String hitAndBlow(int[] answerCandidates, int[] input, int numDigit) {
+    public String hitAndBlow(Integer[] answerCandidates, Integer[] input, int numDigit) {
 
         int numHit;
         int numBlow;

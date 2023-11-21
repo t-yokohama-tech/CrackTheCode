@@ -13,12 +13,12 @@ public class CountBlowImpl implements CountBlow {
      * 返却値：Blow数
      * *************************/
     @Override
-    public int countBlow(int[] input, int[] answer, int numDigit) {
+    public int countBlow(Integer[] input, Integer[] answer, int numDigit) {
         int numBlow = 0;
 
         for (int i = 0; i < numDigit; i++) {
             for (int j = 0; j < numDigit; j++) {
-                if (answer[i] == input[j]) {
+                if (answer[i].equals(input[j])) {
                     if (i != j) {
                         numBlow++;
                     }

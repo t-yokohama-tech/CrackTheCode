@@ -12,7 +12,7 @@ import java.util.List;
 public class CreatingCorrectAnswerCandidatesImpl implements CreatingCorrectAnswerCandidates {
 
     @Override
-    public int[][] create(int[][] input, String[] HitBlow) {
+    public Integer[][] create(Integer[][] input, String[] HitBlow) {
         int i = 0;
         //使わない数字
         List<Integer> usedNumbers
@@ -25,7 +25,7 @@ public class CreatingCorrectAnswerCandidatesImpl implements CreatingCorrectAnswe
             //0H0B
             if (HitBlow[i].equals("0H0B")) {
                 for (int j = 0; j < 3; j++) {
-                    usedNumbers.remove(usedNumbers.indexOf(input[i][j]));
+                    usedNumbers.remove(input[i][j]);
                 }
             }
 
@@ -52,6 +52,10 @@ public class CreatingCorrectAnswerCandidatesImpl implements CreatingCorrectAnswe
                 }
             }
         }
-        return answerCandidates;//二次元配列で返す
+
+        return answerCandidates.stream()
+                .map(list -> list.toArray(Integer[]::new))
+                .toList()
+                .toArray(Integer[][]::new);
     }
 }

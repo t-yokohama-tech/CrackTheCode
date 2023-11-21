@@ -2,6 +2,8 @@ package com.example.demo;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 @Component
 public class CountHitImpl implements CountHit{
 
@@ -14,13 +16,13 @@ public class CountHitImpl implements CountHit{
      * *************************/
 
     @Override
-    public int countHit(int[] input, int[] answer, int numDigit) {
+    public int countHit(Integer[] input, Integer[] answer, int numDigit) {
 
         int numHit = 0;
 
         for(int i = 0; i<numDigit; i++) {
             for(int j= 0; j<numDigit; j++){
-                if(answer[i] == input[j]) {
+                if(answer[i].equals(input[j])) {
                     if(i == j){
                         numHit++;
                     }
