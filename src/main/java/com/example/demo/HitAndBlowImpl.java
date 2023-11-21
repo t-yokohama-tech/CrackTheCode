@@ -1,33 +1,32 @@
 package com.example.demo;
 
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.io.Reader;
 
+@Component
 @lombok.AllArgsConstructor
-public class HitAndBlowImpl implements HitAndBlow{
+public class HitAndBlowImpl implements HitAndBlow {
 
     private final CountHitImpl countHit;
     private final CountBlowImpl countBlow;
-    private final InputNum inputNum;
 
     @Override
-    public void hitAndBlow(Reader raed, char[] answer, int numDigit) throws IOException {
+    public String hitAndBlow(int[] answerCandidates, int[] input, int numDigit) {
 
         int numHit;
         int numBlow;
-        do {
+        String answerStr;
+        numHit = countHit.countHit(answerCandidates, input, numDigit);
+        numBlow = countBlow.countBlow(answerCandidates, input, numDigit);
+        answerStr = numHit + "H" + numBlow + "B";
 
-            char[] input = new char[3];
-            inputNum.input(raed, numDigit);
-
-
-            numHit = countHit.countHit(answer, input, numDigit);
-            numBlow = countBlow.countBlow(answer, input, numDigit);
-            if (numHit == 0 && numBlow == 0) {
-                System.out.println("Nothing is correct!");
-            } else {
-                System.out.println(numHit + "number correct!!  " + numBlow + "number correct, wrong place!!");
-            }
-        } while (numHit < numDigit);
+//        if (numHit == 0 && numBlow == 0) {
+//            answerStr = "Nothing is correct!";
+//        } else {
+//            answerStr = numHit + "number correct!!  " + numBlow + "number correct, wrong place!!";
+//        }
+        return answerStr;
     }
 }

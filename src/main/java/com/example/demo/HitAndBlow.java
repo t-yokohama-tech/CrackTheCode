@@ -5,6 +5,6 @@ import java.io.Reader;
 
 public interface HitAndBlow {
 
-    void hitAndBlow(Reader raed, char[] answer, int numDigit) throws IOException;
+    String hitAndBlow(int[] answer, int[] input, int numDigit);
 
 }

@@ -2,5 +2,5 @@ package com.example.demo;
 
 public interface CountHit {
 
-    int countHit(char[] input, char[] answer, int numDigit);
+    int countHit(int[] input, int[] answer, int numDigit);
 }

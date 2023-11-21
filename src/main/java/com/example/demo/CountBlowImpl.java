@@ -1,6 +1,9 @@
 package com.example.demo;
 
-public class CountBlowImpl implements CountBlow{
+import org.springframework.stereotype.Component;
+
+@Component
+public class CountBlowImpl implements CountBlow {
 
     /***************************
      * Blow数を数える
@@ -10,7 +13,7 @@ public class CountBlowImpl implements CountBlow{
      * 返却値：Blow数
      * *************************/
     @Override
-    public int countBlow(char[] input, char[] answer, int numDigit) {
+    public int countBlow(int[] input, int[] answer, int numDigit) {
         int numBlow = 0;
 
         for (int i = 0; i < numDigit; i++) {
