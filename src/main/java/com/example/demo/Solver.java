@@ -50,7 +50,7 @@ public class Solver {
 
         int[] stack = new int[Code.NUM_OF_DIGITS];
 
-        for(int i :stack){
+        for(int i = Code.NUM_OF_DIGITS-1; i>0; i--){
             stack[i] = n % 10;
             n=n/10;
         }
