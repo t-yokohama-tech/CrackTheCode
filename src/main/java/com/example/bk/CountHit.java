@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.bk;
 
 public interface CountHit {
 

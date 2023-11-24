@@ -1,9 +1,6 @@
-package com.example.demo;
+package com.example.bk;
 
 import org.springframework.stereotype.Component;
-
-import java.io.IOException;
-import java.io.Reader;
 
 @Component
 @lombok.AllArgsConstructor
