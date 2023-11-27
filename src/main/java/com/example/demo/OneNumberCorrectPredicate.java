@@ -1,17 +1,17 @@
 package com.example.demo;
 
 import java.util.function.Predicate;
+import java.util.stream.IntStream;
 
 public class OneNumberCorrectPredicate implements Predicate<Code> {
 
+    private final Code verifyNumber = Code.from(5, 4, 8);
+
     @Override
     public boolean test(Code code) {
-        int trueNum = 1;
-        int trueCount = 0;
-        Code verifyNumber = Code.from(5, 4, 8);
-        for (int i = 0; i < Code.NUM_OF_DIGITS; i++) {
-            if (verifyNumber.getDigit(i) == code.getDigit(i)) trueCount++;
-        }
-        return trueCount == trueNum;
+
+        return IntStream.range(0,Code.NUM_OF_DIGITS)
+                .filter(i -> code.getDigit(i) == verifyNumber.getDigit(i))
+                .count() == 1;
     }
 }
