@@ -23,15 +23,21 @@ public class NothingIsCorrectPredicateTest {
         }
 
         @Test
+        void returnTrueNoNumbersAppear(){
+            var code = Code.from(9,9,9);
+
+            var result = target.test(code);
+
+            assertTrue(result);
+        }
+
+        @Test
         void returnFalse() {
-            var code = Code.from(0, 0, 0);
+            var code = Code.from(5, 0, 3);
 
             var result = target.test(code);
 
             assertFalse(result);
         }
     }
-
-
-
 }

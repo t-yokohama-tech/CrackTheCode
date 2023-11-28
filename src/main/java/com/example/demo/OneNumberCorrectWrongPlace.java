@@ -15,7 +15,6 @@ public class OneNumberCorrectWrongPlace implements Predicate<Code> {
                         IntStream.range(0, Code.NUM_OF_DIGITS)
                                 .filter(j -> i != j )
                                 .filter(j -> code.getDigit(i) == verifyNumber806.getDigit(j) || code.getDigit(i) == verifyNumber647.getDigit(j))
-
                 ).count() == 2;
     }
 }

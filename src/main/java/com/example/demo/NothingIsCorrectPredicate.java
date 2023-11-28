@@ -9,10 +9,9 @@ public class NothingIsCorrectPredicate implements Predicate<Code> {
 
     @Override
     public boolean test(Code code) {
-return true;
-      //  return IntStream.range(0,Code.NUM_OF_DIGITS)
-//                .forEach(i -> code.getDigit(i))
-//                .filter(i -> code.getDigit(i) == verifyNumber.getDigit(i))
-//                .count() == 0;
+
+        return IntStream.range(0, Code.NUM_OF_DIGITS)
+                .filter(i -> code.getDigit(i) != verifyNumber.getDigit(i))
+                .count() == 3;
     }
 }
