@@ -8,7 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TwoNumberCorrectWrongPlaceTest {
 
-    private final TwoNumberCorrectWrongPlace target = new TwoNumberCorrectWrongPlace();
+    private final Code code =  Code.from(1, 5, 7);
+
+    private final TwoNumberCorrectWrongPlace target = new TwoNumberCorrectWrongPlace(code);
 
     @Nested
     class test {

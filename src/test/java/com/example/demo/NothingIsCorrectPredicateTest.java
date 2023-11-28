@@ -8,7 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NothingIsCorrectPredicateTest {
 
-    private final NothingIsCorrectPredicate target = new NothingIsCorrectPredicate();
+    private final Code code530 = Code.from(5, 3, 0);
+
+    private final NothingIsCorrectPredicate target = new NothingIsCorrectPredicate(code530);
 
     @Nested
     class test {

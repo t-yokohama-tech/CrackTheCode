@@ -5,7 +5,11 @@ import java.util.stream.IntStream;
 
 public class OneNumberCorrectPredicate implements Predicate<Code> {
 
-    private final Code verifyNumber = Code.from(5, 4, 8);
+    private final Code verifyNumber;
+
+    public OneNumberCorrectPredicate(Code vCode){
+        verifyNumber = vCode;
+    }
 
     @Override
     public boolean test(Code code) {

@@ -5,7 +5,11 @@ import java.util.stream.IntStream;
 
 public class TwoNumberCorrectWrongPlace implements Predicate<Code> {
 
-    private final Code verifyNumber = Code.from(1, 5, 7);
+    private final Code verifyNumber;
+
+    TwoNumberCorrectWrongPlace(Code vCode){
+        verifyNumber = vCode;
+    }
 
     @Override
     public boolean test(Code code) {

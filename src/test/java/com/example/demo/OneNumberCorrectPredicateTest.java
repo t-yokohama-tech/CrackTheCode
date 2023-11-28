@@ -7,7 +7,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class OneNumberCorrectPredicateTest {
 
-    private final OneNumberCorrectPredicate target = new OneNumberCorrectPredicate();
+    private final Code code548 = Code.from(5, 4, 8);
+
+    private final OneNumberCorrectPredicate target = new OneNumberCorrectPredicate(code548);
 
     @Nested
     class test {

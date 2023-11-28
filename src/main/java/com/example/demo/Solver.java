@@ -11,38 +11,27 @@ public class Solver {
     public List<Integer> solve() {
 
         return Stream.iterate(0, n -> n + 1).limit(999)
-                .filter(i ->  // 548 one number correct
-                        positionMatchVerification(Code.from(IntToArray(i)), Code.from(5,4,8), 1)
-                )
-                .filter(i ->  // 530 nothing is correct
-                        positionMatchVerification(Code.from(IntToArray(i)), Code.from(5, 3, 0), 0)
-                )
-                .filter(i ->  // 157 2 number correct, wrong place
-                        comparativeContainsVerification(Code.from(IntToArray(i)), Code.from(1, 5, 7), 2)
-                )
-                .filter(i -> // 806 1 number correct, wrong place
-                        comparativeContainsVerification(Code.from(IntToArray(i)), Code.from(8, 0, 6), 1)
-                )
-                .filter(i ->  // 647 1 number correct, wrong place
-                        comparativeContainsVerification(Code.from(IntToArray(i)), Code.from(6, 4, 7), 1)
-                )
+                .filter(i -> {// 548 one number correct
+                    OneNumberCorrectPredicate oneNumberCorrectPredicate = new OneNumberCorrectPredicate(Code.from(5, 4, 8));
+                    return oneNumberCorrectPredicate.test(Code.from(IntToArray(i)));
+                })
+                .filter(i -> { // 530 nothing is correct
+                    NothingIsCorrectPredicate nothingIsCorrectPredicate = new NothingIsCorrectPredicate(Code.from(5, 3, 0));
+                    return nothingIsCorrectPredicate.test(Code.from(IntToArray(i)));
+                })
+                .filter(i -> {  // 157 2 number correct, wrong place
+                    TwoNumberCorrectWrongPlace twoNumberCorrectWrongPlace = new TwoNumberCorrectWrongPlace(Code.from(1, 5, 7));
+                    return twoNumberCorrectWrongPlace.test(Code.from(IntToArray(i)));
+                })
+                .filter(i -> { // 806 1 number correct, wrong place
+                    OneNumberCorrectWrongPlace oneNumberCorrectWrongPlace = new OneNumberCorrectWrongPlace(Code.from(8, 0, 6));
+                    return oneNumberCorrectWrongPlace.test(Code.from(IntToArray(i)));
+                })
+                .filter(i -> { // 647 1 number correct, wrong place
+                    OneNumberCorrectWrongPlace oneNumberCorrectWrongPlace = new OneNumberCorrectWrongPlace(Code.from(6, 4, 7));
+                    return oneNumberCorrectWrongPlace.test(Code.from(IntToArray(i)));
+                })
                 .toList();
-    }
-
-    private boolean positionMatchVerification(Code answerCodeCandidates, Code verifyNumber, int trueNum) {
-        int trueCount = 0;
-        for (int i = 0; i < Code.NUM_OF_DIGITS; i++) {
-            if (answerCodeCandidates.getDigit(i) == verifyNumber.getDigit(i)) trueCount++;
-        }
-        return trueCount == trueNum;
-    }
-
-    private boolean comparativeContainsVerification(Code answerCodeCandidates, Code verifyNumber, int trueNum) {
-        int trueCount = 0;
-        for (int i = 0; i < Code.NUM_OF_DIGITS; i++) {
-            if(answerCodeCandidates.contains(verifyNumber.getDigit(i))) trueCount++;
-        }
-        return trueCount == trueNum;
     }
 
 
@@ -50,9 +39,9 @@ public class Solver {
 
         int[] stack = new int[Code.NUM_OF_DIGITS];
 
-        for(int i = Code.NUM_OF_DIGITS-1; i>0; i--){
+        for (int i = Code.NUM_OF_DIGITS - 1; i > 0; i--) {
             stack[i] = n % 10;
-            n=n/10;
+            n = n / 10;
         }
 
         return stack;
