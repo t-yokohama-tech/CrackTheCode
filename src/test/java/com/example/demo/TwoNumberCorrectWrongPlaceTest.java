@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TwoNumberCorrectWrongPlaceTest {
 
-    private final Code code =  Code.from(1, 5, 7);
+    private final Code code = Code.from(1, 5, 7);
 
     private final TwoNumberCorrectWrongPlace target = new TwoNumberCorrectWrongPlace(code);
 
@@ -16,7 +16,7 @@ public class TwoNumberCorrectWrongPlaceTest {
     class test {
 
         @Test
-        void returnTrue() {
+        void returnTrueNumbersMatchTheConditions() {
             var code = Code.from(7, 1, 8);
 
             var result = target.test(code);
@@ -25,7 +25,7 @@ public class TwoNumberCorrectWrongPlaceTest {
         }
 
         @Test
-        void returnFalse() {
+        void returnFalseOnlyOneNumberIsUsed() {
             var code = Code.from(0, 1, 6);
 
             var result = target.test(code);
@@ -43,8 +43,17 @@ public class TwoNumberCorrectWrongPlaceTest {
         }
 
         @Test
-        void returnTrueDuplicationNumber() {
+        void returnFalseOnlyOneSpecifiedNumberIsUsed_Duplicate() {
             var code = Code.from(0, 1, 1);
+
+            var result = target.test(code);
+
+            assertFalse(result);
+        }
+
+        @Test
+        void returnTrueTwoSpecifiedNumbersAreUsed_Duplicate() {
+            var code = Code.from(5, 1, 5);
 
             var result = target.test(code);
 
